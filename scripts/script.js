@@ -1,4 +1,3 @@
-
 let productsHTML = '';
 
 products.forEach((product) => {
@@ -48,7 +47,8 @@ products.forEach((product) => {
 
         <button class="add-to-cart-button
          button-primary 
-        js-add-to-cart">Add to Cart</button>
+        js-add-to-cart" 
+        data-product-id="${product.id}">Add to Cart</button>
         </div>
         `;
 })
@@ -59,7 +59,24 @@ productContainer.innerHTML = productsHTML;
 const addToCardBtn = document.querySelectorAll('.js-add-to-cart');
 addToCardBtn.forEach((btn) => {
     btn.addEventListener('click', () => {
-        console.log(btn);
-    })
-})
-
+        const productId = btn.dataset.productId;
+        let matching;
+        cart.forEach( (item) => {
+            if(productId === item.productId)
+            {
+                matching = item;
+            }
+            });
+            if(matching)
+            {
+                matching.quantity += 1;
+            } 
+            else {
+                cart.push({
+                productId,
+                quantity: 1
+            });
+            }
+    console.log(cart);
+});
+});
