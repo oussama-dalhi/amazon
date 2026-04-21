@@ -77,6 +77,8 @@ addToCardBtn.forEach((btn) => {
                 quantity: 1
             });
             }
-    console.log(cart);
+
+        const quantitySum = cart.reduce((acc, item) => acc + item.quantity, 0);
+        document.querySelector('.js-cart-quantity').textContent = quantitySum;
 });
 });
