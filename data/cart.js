@@ -1,4 +1,5 @@
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
 const addToCard = (productId) => {
         let matching;
         cart.forEach( (cartItem) => {
@@ -14,7 +15,8 @@ const addToCard = (productId) => {
             else {
                 cart.push({
                 productId,
-                quantity: 1
+                quantity: 1,
+                deliveryId: '1'
             });
         }
         saveToStorage();
