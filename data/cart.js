@@ -1,4 +1,4 @@
-const cart = [
+let cart = [
     {
     productId: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
     quantity: 2
@@ -22,4 +22,9 @@ const addToCard = (productId) => {
             });
         }
 }
-export {cart, addToCard};
+
+const removeFromCart = (productId) => {
+   cart = cart.filter(item => item.productId !== productId);
+}
+
+export {cart, addToCard, removeFromCart};
