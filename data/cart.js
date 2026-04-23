@@ -1,5 +1,4 @@
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
 const addToCard = (productId) => {
         let matching;
         cart.forEach( (cartItem) => {
@@ -31,4 +30,15 @@ function saveToStorage() {
     localStorage.setItem('cart', JSON.stringify(cart));
 }
 
-export {cart, addToCard, removeFromCart, saveToStorage};
+function updateDeliveryOption(productId, deliveryId) {
+    let matching;
+      cart.forEach( (cartItem) => {
+    if(productId === cartItem.productId)
+    {
+      matching = cartItem;
+    }
+    });
+    matching.deliveryId = deliveryId;
+    saveToStorage();
+}
+export {cart, addToCard, removeFromCart, updateDeliveryOption, saveToStorage};
