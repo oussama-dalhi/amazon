@@ -70,3 +70,4 @@ addToCardBtn.forEach((button) => {
         updateCartQuantity();
     });
 });
+window.addEventListener('DOMContentLoaded', updateCartQuantity);
