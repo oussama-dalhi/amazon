@@ -12,7 +12,6 @@ function renderOrderSummary() {
         const matchingItem = getProducts(productId);
         const deliveryOptionId = cartItem.deliveryId;
         const deliveryOption = getDeliveryOptions(deliveryOptionId);
-
         const today = dayjs();
         const deliveryDate = today.add(deliveryOption.deliveryDays, 'day');
         const dateString = deliveryDate.format('dddd, MMMM D');
@@ -56,11 +55,16 @@ function renderOrderSummary() {
     });
     document.querySelector('.js-order-summary').innerHTML = cartHTML;
 
-
-
+    // update checkout items count
+    const checkoutItemsCount = cart.reduce((total, item) => total + item.quantity, 0);
+    document.querySelector('.js-items-count').innerHTML = `
+    Checkout (<a class="return-to-home-link" href="amazon.html">
+    ${checkoutItemsCount} items
+    </a>)
+    `;
     function deliveryOptionsHTML(matchingItem, cartItem) {
         let deliveryHTML = '';
-
+        // generate Delivery dates and prices
             deliveryOptions.forEach((deliveryOption) => {
             const today = dayjs();
             const deliveryDate = today.add(deliveryOption.deliveryDays, 'day');
@@ -90,7 +94,6 @@ function renderOrderSummary() {
         });
         return deliveryHTML;
     }
-
     document.querySelectorAll('.js-delivery-options').forEach((element) => {
         element.addEventListener('click', () => {
             const {productId, deliveryId} = element.dataset;
@@ -108,6 +111,7 @@ function renderOrderSummary() {
             const container = document.querySelector(`.js-cart-item-container-${productId}`);
             container.remove();
             renderPaymentSummary();
+            renderOrderSummary();
         })
     })
 };
