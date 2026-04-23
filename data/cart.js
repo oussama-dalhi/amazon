@@ -1,12 +1,11 @@
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
-const addToCard = (productId) => {
-        let matching;
-        cart.forEach( (cartItem) => {
-            if(productId === cartItem.productId)
-            {
-                matching = cartItem;
-            }
-            });
+let cart;
+
+function loadCart() {
+    cart = JSON.parse(localStorage.getItem('cart')) || [];
+};
+loadCart();
+const addToCart = (productId) => {
+    const matching = cart.find(item => item.productId === productId);
             if(matching)
             {
                 matching.quantity += 1;
@@ -31,14 +30,10 @@ function saveToStorage() {
 }
 
 function updateDeliveryOption(productId, deliveryId) {
-    let matching;
-      cart.forEach( (cartItem) => {
-    if(productId === cartItem.productId)
-    {
-      matching = cartItem;
+    const matcing = cart.find(item => item.productId === productId);
+    if (matching) {
+        matching.deliveryId = deliveryId;
+        saveToStorage();
     }
-    });
-    matching.deliveryId = deliveryId;
-    saveToStorage();
 }
-export {cart, addToCard, removeFromCart, updateDeliveryOption, saveToStorage};
+export {cart, addToCart, removeFromCart, updateDeliveryOption, loadCart, saveToStorage};
