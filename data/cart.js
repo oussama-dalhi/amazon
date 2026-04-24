@@ -1,9 +1,8 @@
 let cart;
-
-function loadCart() {
+loadFromStorage();
+function loadFromStorage() {
     cart = JSON.parse(localStorage.getItem('cart')) || [];
-};
-loadCart();
+}
 const addToCart = (productId) => {
     const matching = cart.find(item => item.productId === productId);
             if(matching)
@@ -30,10 +29,10 @@ function saveToStorage() {
 }
 
 function updateDeliveryOption(productId, deliveryId) {
-    const matcing = cart.find(item => item.productId === productId);
+    const matching = cart.find(item => item.productId === productId);
     if (matching) {
         matching.deliveryId = deliveryId;
         saveToStorage();
     }
 }
-export {cart, addToCart, removeFromCart, updateDeliveryOption, loadCart, saveToStorage};
+export {cart, addToCart, removeFromCart, loadFromStorage, updateDeliveryOption, saveToStorage};
