@@ -12,11 +12,6 @@ export function getProducts(productId) {
 }
 
 class Product {
-  id;
-  image;
-  name;
-  rating;
-  priceCents;
   constructor(productDetails) {
     this.id = productDetails.id;
     this.image = productDetails.image;
@@ -36,7 +31,6 @@ class Product {
 }
 
 class Clothing extends Product {
-  sizeChartLink;
   constructor(productDetails) {
     super(productDetails);
     this.sizeChartLink = productDetails.sizeChartLink;
