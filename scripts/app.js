@@ -1,10 +1,10 @@
 import {cart, addToCart} from '../data/cart.js';
-import {products} from '../data/products.js';
+import {products, loadProducts} from '../data/products.js';
 import {formatCurrency} from './utils/money.js';
-
-
-let productsHTML = '';
-products.forEach((product) => {
+loadProducts(renderProductsGrid);
+function renderProductsGrid() {
+    let productsHTML = '';
+    products.forEach((product) => {
     productsHTML += `
         <div class="product-container">
         <div class="product-image-container">
@@ -51,26 +51,27 @@ products.forEach((product) => {
         </div>
 
         <button class="add-to-cart-button
-         button-primary 
+            button-primary 
         js-add-to-cart" 
         data-product-id="${product.id}">Add to Cart</button>
         </div>
         `;
-})
-const productContainer = document.querySelector('.js-products-grid');
-productContainer.innerHTML = productsHTML;
+    })
+    const productContainer = document.querySelector('.js-products-grid');
+    productContainer.innerHTML = productsHTML;
 
-const updateCartQuantity = () => {
+    const updateCartQuantity = () => {
         const quantitySum = cart.reduce((acc, cartItem) => acc + cartItem.quantity, 0);
         document.querySelector('.js-cart-quantity').textContent = quantitySum;
-}
-const addToCardBtn = document.querySelectorAll('.js-add-to-cart');
-addToCardBtn.forEach((button) => {
+    }
+    const addToCardBtn = document.querySelectorAll('.js-add-to-cart');
+    addToCardBtn.forEach((button) => {
     button.addEventListener('click', () => {
         const productId = button.dataset.productId;
         addToCart(productId);
         updateCartQuantity();
     });
-});
-window.addEventListener('DOMContentLoaded', updateCartQuantity);
+    });
+    updateCartQuantity();
+};
 
