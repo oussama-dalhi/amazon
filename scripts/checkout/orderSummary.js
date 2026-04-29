@@ -62,6 +62,7 @@ function renderOrderSummary() {
     ${checkoutItemsCount} items
     </a>)
     `;
+    document.querySelector('.payment-summary-items').innerHTML = `items (${checkoutItemsCount})`;
     function deliveryOptionsHTML(matchingItem, cartItem) {
         let deliveryHTML = '';
         // generate Delivery dates and prices
