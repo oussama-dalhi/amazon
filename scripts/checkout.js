@@ -1,18 +1,18 @@
 import {renderOrderSummary} from './checkout/orderSummary.js';
 import {renderPaymentSummary} from './checkout/paymentSummary.js';
 import {loadProductsFetch} from '../data/products.js';
-import {loadCart} from '../data/cart.js';
-Promise.all([loadProductsFetch(),
-  new Promise((resolve) => {
-    loadCart(() => {
-    resolve();
-  })
-  })
-])
-  .then(() => {
+
+async function loadPage() {
+  try {
+    await loadProductsFetch();
     renderPaymentSummary();
     renderOrderSummary();
-  });
+  } catch (error) {
+    console.log('Checkout failed to load:', error);
+  }
+}
+loadPage();
+
 
 
 
