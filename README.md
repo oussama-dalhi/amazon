@@ -7,12 +7,12 @@ A front-end e-commerce application inspired by Amazon, built with vanilla JavaSc
 
 ##  Features
 
-* 📦 Fetch products from an external API
-* 🛍️ Add items to cart
-* 🔢 Dynamic cart updates
-* 💳 Order summary interface
-* ⚡ Fully dynamic UI rendering
-* 🔄 Uses `fetch` and Promises for async operations
+*  Fetch products from an external API
+*  Add items to cart
+*  Dynamic cart updates
+*  Order summary interface
+*  Fully dynamic UI rendering
+*  Uses `fetch` and Promises for async operations
 
 ---
 
@@ -83,7 +83,7 @@ A front-end e-commerce application inspired by Amazon, built with vanilla JavaSc
 
 ---
 
-## ⚙️ Getting Started
+##  Getting Started
 
 ```bash
 git clone https://github.com/oussama-dalhi/amazon.git
@@ -97,7 +97,7 @@ Open `amazon.html` in your browser or use Live Server.
 
 ---
 
-## ⚠️ Disclaimer
+##  Disclaimer
 
 This project is inspired by Amazon's UI for educational purposes only.
 It is not affiliated with or endorsed by Amazon.
