@@ -104,6 +104,6 @@ It is not affiliated with or endorsed by Amazon.
 
 ---
 
-## 🙌 Acknowledgements
+##  Acknowledgements
 
 * https://supersimplebackend.dev
