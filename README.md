@@ -1,11 +1,11 @@
-# 🛒 Amazon-Inspired E-commerce App
+#  Amazon-Inspired E-commerce App
 
 A front-end e-commerce application inspired by Amazon, built with vanilla JavaScript to practice asynchronous programming, API integration, and object-oriented design.
 
 ---
 
 
-## ✨ Features
+##  Features
 
 * 📦 Fetch products from an external API
 * 🛍️ Add items to cart
@@ -16,7 +16,7 @@ A front-end e-commerce application inspired by Amazon, built with vanilla JavaSc
 
 ---
 
-## 🧠 What This Project Demonstrates
+##  What This Project Demonstrates
 
 * JavaScript fundamentals (ES6+)
 * Asynchronous programming (Promises, fetch)
@@ -26,7 +26,7 @@ A front-end e-commerce application inspired by Amazon, built with vanilla JavaSc
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 * HTML5
 * CSS3
@@ -34,7 +34,7 @@ A front-end e-commerce application inspired by Amazon, built with vanilla JavaSc
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```plaintext
 .
@@ -94,13 +94,6 @@ Open `amazon.html` in your browser or use Live Server.
 
 ---
 
-
-## 🌟 Future Improvements
-
-* 💾 Save cart using localStorage
-* ⚠️ Better error handling
-* ⏳ Loading indicators
-* 📱 Responsive design improvements
 
 ---
 
